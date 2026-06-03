@@ -1,0 +1,43 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hospital-ingress
+  labels:
+    name: hospital-ingress
+
+  
+  annotations: 
+    cert-manager.io/cluster-issuer: production
+    nginx.ingress.kubernetes.io/ssl-passthrough: "false"
+    
+spec:
+  tls:
+    - hosts:
+        - hospital.jay4tech.online
+        - hospitalapi.jay4tech.online
+      secretName: hospital-backend-tls-secret
+
+
+  ingressClassName: external-nginx
+  rules:
+  - host: hospital.jay4tech.online
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend-hospital-service
+            port: 
+              number: 3000
+
+  - host: hospitalapi.jay4tech.online
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: hospital-backend-service
+            port: 
+              number: 8080

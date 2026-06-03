@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-hospital-deployment
+spec:
+  replicas: 1  # Adjust as necessary
+  selector:
+    matchLabels:
+      app: frontend-hospital
+  template:
+    metadata:
+      labels:
+        app: frontend-hospital
+    spec:
+      containers:
+      - name: frontend-hospitaling-container
+        image: joyuc/hospital-app-frontend:5  # Replace this with your Docker image name
+        ports:
+        - containerPort: 3000 # Replace with your app's port if necessary
+        env:
+        - name: REACT_APP_API_URL
+          valueFrom:
+            configMapKeyRef:
+              name: hospital-frontend-config
+              key: REACT_APP_API_URL
