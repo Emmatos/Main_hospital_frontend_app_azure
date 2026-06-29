@@ -21,7 +21,7 @@ const ViewDoctorAppointment = () => {
 
   const retrieveAllAppointments = async () => {
     const response = await axios.get(
-      "https://hospitalapi.jay4tech.online/api/appointment/doctor/id?doctorId="+doctor.id
+      "https://hospitalapi.telcopharmacy.store/api/appointment/doctor/id?doctorId="+doctor.id
     );
     console.log(response.data);
     return response.data;

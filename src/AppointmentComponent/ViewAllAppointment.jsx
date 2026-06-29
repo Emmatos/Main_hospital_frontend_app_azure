@@ -19,7 +19,7 @@ const ViewAllAppointment = () => {
 
   const retrieveAllAppointments = async () => {
     const response = await axios.get(
-      "https://hospitalapi.jay4tech.online/api/appointment/all"
+      "https://hospitalapi.telcopharmacy.store/api/appointment/all"
     );
     console.log(response.data);
     return response.data;

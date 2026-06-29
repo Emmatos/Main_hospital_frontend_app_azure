@@ -8,7 +8,7 @@ const HomePage = () => {
   const [allDoctor, setAllDoctor] = useState([]);
 
   const retrieveAllDoctor = async () => {
-    const response = await axios.get("https://hospitalapi.jay4tech.online/api/doctor/all");
+    const response = await axios.get("https://hospitalapi.telcopharmacy.store/api/doctor/all");
     console.log(response.data);
     return response.data;
   };

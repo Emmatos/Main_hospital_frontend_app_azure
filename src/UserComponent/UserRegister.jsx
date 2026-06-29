@@ -39,20 +39,20 @@ const UserRegister = () => {
   const [specialists, setSpecialists] = useState([]);
 
   const retrieveAllGenders = async () => {
-    const response = await axios.get("https://hospitalapi.jay4tech.online/api/user/gender");
+    const response = await axios.get("https://hospitalapi.telcopharmacy.store/api/user/gender");
     return response.data;
   };
 
   const retrieveAllBloodGroups = async () => {
     const response = await axios.get(
-      "https://hospitalapi.jay4tech.online/api/patient/bloodgroup/all"
+      "https://hospitalapi.telcopharmacy.store/api/patient/bloodgroup/all"
     );
     return response.data;
   };
 
   const retrieveAllSpecialist = async () => {
     const response = await axios.get(
-      "https://hospitalapi.jay4tech.online/api/doctor/specialist/all"
+      "https://hospitalapi.telcopharmacy.store/api/doctor/specialist/all"
     );
     return response.data;
   };
@@ -86,7 +86,7 @@ const UserRegister = () => {
 
   const saveUser = (event) => {
     event.preventDefault();
-    fetch("https://hospitalapi.jay4tech.online/api/user/register", {
+    fetch("https://hospitalapi.telcopharmacy.store/api/user/register", {
       method: "POST",
       headers: {
         Accept: "application/json",

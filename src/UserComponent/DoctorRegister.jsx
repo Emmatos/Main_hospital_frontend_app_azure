@@ -34,13 +34,13 @@ const DoctorRegister = () => {
   const [specialists, setSpecialists] = useState([]);
 
   const retrieveAllGenders = async () => {
-    const response = await axios.get("https://hospitalapi.jay4tech.online/api/user/gender");
+    const response = await axios.get("https://hospitalapi.telcopharmacy.store/api/user/gender");
     return response.data;
   };
 
   const retrieveAllSpecialist = async () => {
     const response = await axios.get(
-      "https://hospitalapi.jay4tech.online/api/doctor/specialist/all"
+      "https://hospitalapi.telcopharmacy.store/api/doctor/specialist/all"
     );
     return response.data;
   };
@@ -84,7 +84,7 @@ const DoctorRegister = () => {
     formData.append("experience", user.experience);
 
     axios
-      .post("https://hospitalapi.jay4tech.online/api/doctor/register", formData)
+      .post("https://hospitalapi.telcopharmacy.store/api/doctor/register", formData)
       .then((result) => {
         result.json().then((res) => {
           console.log(res);

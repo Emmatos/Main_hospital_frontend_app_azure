@@ -16,7 +16,7 @@ const AssignAppointment = () => {
 
   const retrieveAppointment = async () => {
     const response = await axios.get(
-      "https://hospitalapi.jay4tech.online/api/appointment/id?appointmentId=" + appointmentId
+      "https://hospitalapi.telcopharmacy.store/api/appointment/id?appointmentId=" + appointmentId
     );
     return response.data;
   };
@@ -41,7 +41,7 @@ const AssignAppointment = () => {
   }, []);
 
   const retrieveAllDoctor = async () => {
-    const response = await axios.get("https://hospitalapi.jay4tech.online/api/doctor/all");
+    const response = await axios.get("https://hospitalapi.telcopharmacy.store/api/doctor/all");
     console.log(response.data);
     return response.data;
   };
@@ -53,7 +53,7 @@ const AssignAppointment = () => {
 
     axios
       .post(
-        "https://hospitalapi.jay4tech.online/api/appointment/admin/assign/doctor",
+        "https://hospitalapi.telcopharmacy.store/api/appointment/admin/assign/doctor",
         formData
       )
       .then((result) => {

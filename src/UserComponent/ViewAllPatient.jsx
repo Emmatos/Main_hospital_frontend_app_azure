@@ -17,13 +17,13 @@ const ViewAllPatient = () => {
   }, []);
 
   const retrieveAllPatient = async () => {
-    const response = await axios.get("https://hospitalapi.jay4tech.online/api/patient/all");
+    const response = await axios.get("https://hospitalapi.telcopharmacy.store/api/patient/all");
     console.log(response.data);
     return response.data;
   };
 
   const deletePatient = (patientId) => {
-    fetch("https://hospitalapi.jay4tech.online/api/user/delete/id?userId=" + patientId, {
+    fetch("https://hospitalapi.telcopharmacy.store/api/user/delete/id?userId=" + patientId, {
       method: "GET",
       headers: {
         Accept: "application/json",
