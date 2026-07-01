@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend-hospitaling-container
-        image: joyuc/hospital-app-frontend:5  # Replace this with your Docker image name
+        image: emmatos1/hospital-app-frontend:4  # Replace this with your Docker image name
         ports:
         - containerPort: 3000 # Replace with your app's port if necessary
         env:

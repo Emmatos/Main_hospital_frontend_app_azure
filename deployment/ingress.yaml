@@ -13,14 +13,14 @@ metadata:
 spec:
   tls:
     - hosts:
-        - hospital.jay4tech.online
-        - hospitalapi.jay4tech.online
+        - hospital.telcopharmacy.store
+        - hospitalapi.telcopharmacy.store
       secretName: hospital-backend-tls-secret
 
 
   ingressClassName: external-nginx
   rules:
-  - host: hospital.jay4tech.online
+  - host: hospital.telcopharmacy.store
     http:
       paths:
       - path: /
@@ -31,7 +31,7 @@ spec:
             port: 
               number: 3000
 
-  - host: hospitalapi.jay4tech.online
+  - host: hospitalapi.telcopharmacy.store
     http:
       paths:
       - path: /
