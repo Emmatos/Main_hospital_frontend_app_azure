@@ -2,42 +2,22 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hospital-ingress
-  labels:
-    name: hospital-ingress
-
-  
-  annotations: 
+  annotations:
     cert-manager.io/cluster-issuer: production
-    nginx.ingress.kubernetes.io/ssl-passthrough: "false"
-    
 spec:
+  ingressClassName: external-nginx
   tls:
     - hosts:
-        - hospital.telcopharmacy.store
-        - hospitalapi.telcopharmacy.store
-      secretName: hospital-backend-tls-secret
-
-
-  ingressClassName: external-nginx
+        - hospital.telcopharmacy.online
+      secretName: hospital-frontend-tls-secret
   rules:
-  - host: hospital.telcopharmacy.store
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: frontend-hospital-service
-            port: 
-              number: 3000
-
-  - host: hospitalapi.telcopharmacy.store
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: hospital-backend-service
-            port: 
-              number: 8080
+    - host: hospital.telcopharmacy.online
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-hospital-service
+                port:
+                  number: 3000
