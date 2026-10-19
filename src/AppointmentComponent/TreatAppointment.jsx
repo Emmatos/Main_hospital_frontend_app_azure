@@ -1,3 +1,4 @@
+import API_BASE_URL from "../apiConfig";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
@@ -16,7 +17,7 @@ const TreatAppointment = () => {
   const [prescription, setPrescription] = useState("");
   
   const retrieveAppointment = async () => {
-    const response = await axios.get("https://hospitalapi.telcopharmacy.store/api/appointment/id?appointmentId="+appointmentId);
+    const response = await axios.get(`${API_BASE_URL}/api/appointment/id?appointmentId=`+appointmentId);
     return response.data;
   };
 
@@ -40,7 +41,7 @@ const TreatAppointment = () => {
     formData.append("status", status);
 
     axios
-      .post("https://hospitalapi.telcopharmacy.store/api/appointment/doctor/update", formData)
+      .post(`${API_BASE_URL}/api/appointment/doctor/update`, formData)
       .then((result) => {
         result.json().then((res) => {
           console.log(res);

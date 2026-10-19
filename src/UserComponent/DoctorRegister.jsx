@@ -1,3 +1,4 @@
+import API_BASE_URL from "../apiConfig";
 import { useState, useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -34,13 +35,13 @@ const DoctorRegister = () => {
   const [specialists, setSpecialists] = useState([]);
 
   const retrieveAllGenders = async () => {
-    const response = await axios.get("https://hospitalapi.telcopharmacy.store/api/user/gender");
+    const response = await axios.get(`${API_BASE_URL}/api/user/gender`);
     return response.data;
   };
 
   const retrieveAllSpecialist = async () => {
     const response = await axios.get(
-      "https://hospitalapi.telcopharmacy.store/api/doctor/specialist/all"
+      `${API_BASE_URL}/api/doctor/specialist/all`
     );
     return response.data;
   };
@@ -84,7 +85,7 @@ const DoctorRegister = () => {
     formData.append("experience", user.experience);
 
     axios
-      .post("https://hospitalapi.telcopharmacy.store/api/doctor/register", formData)
+      .post(`${API_BASE_URL}/api/doctor/register`, formData)
       .then((result) => {
         result.json().then((res) => {
           console.log(res);

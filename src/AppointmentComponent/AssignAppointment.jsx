@@ -1,3 +1,4 @@
+import API_BASE_URL from "../apiConfig";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
@@ -16,7 +17,7 @@ const AssignAppointment = () => {
 
   const retrieveAppointment = async () => {
     const response = await axios.get(
-      "https://hospitalapi.telcopharmacy.store/api/appointment/id?appointmentId=" + appointmentId
+      `${API_BASE_URL}/api/appointment/id?appointmentId=` + appointmentId
     );
     return response.data;
   };
@@ -41,7 +42,7 @@ const AssignAppointment = () => {
   }, []);
 
   const retrieveAllDoctor = async () => {
-    const response = await axios.get("https://hospitalapi.telcopharmacy.store/api/doctor/all");
+    const response = await axios.get(`${API_BASE_URL}/api/doctor/all`);
     console.log(response.data);
     return response.data;
   };
@@ -53,7 +54,7 @@ const AssignAppointment = () => {
 
     axios
       .post(
-        "https://hospitalapi.telcopharmacy.store/api/appointment/admin/assign/doctor",
+        `${API_BASE_URL}/api/appointment/admin/assign/doctor`,
         formData
       )
       .then((result) => {

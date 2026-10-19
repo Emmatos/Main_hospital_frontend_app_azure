@@ -1,3 +1,4 @@
+import API_BASE_URL from "../apiConfig";
 import { useState, useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -39,20 +40,20 @@ const UserRegister = () => {
   const [specialists, setSpecialists] = useState([]);
 
   const retrieveAllGenders = async () => {
-    const response = await axios.get("https://hospitalapi.telcopharmacy.store/api/user/gender");
+    const response = await axios.get(`${API_BASE_URL}/api/user/gender`);
     return response.data;
   };
 
   const retrieveAllBloodGroups = async () => {
     const response = await axios.get(
-      "https://hospitalapi.telcopharmacy.store/api/patient/bloodgroup/all"
+      `${API_BASE_URL}/api/patient/bloodgroup/all`
     );
     return response.data;
   };
 
   const retrieveAllSpecialist = async () => {
     const response = await axios.get(
-      "https://hospitalapi.telcopharmacy.store/api/doctor/specialist/all"
+      `${API_BASE_URL}/api/doctor/specialist/all`
     );
     return response.data;
   };
@@ -86,7 +87,7 @@ const UserRegister = () => {
 
   const saveUser = (event) => {
     event.preventDefault();
-    fetch("https://hospitalapi.telcopharmacy.store/api/user/register", {
+    fetch(`${API_BASE_URL}/api/user/register`, {
       method: "POST",
       headers: {
         Accept: "application/json",

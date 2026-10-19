@@ -1,3 +1,4 @@
+import API_BASE_URL from "../apiConfig";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
@@ -23,7 +24,7 @@ const ViewMyAppointment = () => {
 
   const retrieveAllAppointments = async () => {
     const response = await axios.get(
-      "https://hospitalapi.telcopharmacy.store/api/appointment/patient/id?patientId=" + patient.id
+      `${API_BASE_URL}/api/appointment/patient/id?patientId=` + patient.id
     );
     console.log(response.data);
     return response.data;
@@ -32,7 +33,7 @@ const ViewMyAppointment = () => {
   const cancelAppointment = (appointmentId) => {
     console.log(appointmentId);
     console.log("ghittinh api ** ");
-    fetch("https://hospitalapi.telcopharmacy.store/api/appointment/patient/update", {
+    fetch(`${API_BASE_URL}/api/appointment/patient/update`, {
       method: "POST",
       headers: {
         Accept: "application/json",

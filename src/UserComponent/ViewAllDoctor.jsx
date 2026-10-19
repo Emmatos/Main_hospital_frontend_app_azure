@@ -1,3 +1,4 @@
+import API_BASE_URL from "../apiConfig";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
@@ -17,13 +18,13 @@ const ViewAllDoctor = () => {
   }, []);
 
   const retrieveAllDoctor = async () => {
-    const response = await axios.get("https://hospitalapi.telcopharmacy.store/api/doctor/all");
+    const response = await axios.get(`${API_BASE_URL}/api/doctor/all`);
     console.log(response.data);
     return response.data;
   };
 
   const deleteDoctor = (doctorId) => {
-    fetch("https://hospitalapi.telcopharmacy.store/api/user/delete/id?userId=" + doctorId, {
+    fetch(`${API_BASE_URL}/api/user/delete/id?userId=` + doctorId, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -78,7 +79,7 @@ const ViewAllDoctor = () => {
                       <td>
                         <img
                           src={
-                            "https://hospitalapi.telcopharmacy.store/api/user/" +
+                            `${API_BASE_URL}/api/user/` +
                             doctor.doctorImage
                           }
                           class="img-fluid"

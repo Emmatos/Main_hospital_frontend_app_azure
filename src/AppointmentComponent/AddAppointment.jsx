@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
+import API_BASE_URL from "../apiConfig";
 
 const AddAppointment = () => {
 
@@ -19,7 +20,7 @@ const AddAppointment = () => {
 
   const saveAppointment = (event) => {
     event.preventDefault();
-    fetch("http://192.168.0.2:8080/api/appointment/patient/add", {
+    fetch(`${API_BASE_URL}/api/appointment/patient/add`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -27,7 +28,7 @@ const AddAppointment = () => {
       },
       body: JSON.stringify(appointment),
     }).then((result) => {
-      
+
       toast.success("Appointment Added Successfully!!!", {
         position: "top-center",
         autoClose: 1000,
@@ -37,7 +38,7 @@ const AddAppointment = () => {
         draggable: true,
         progress: undefined,
       });
-     
+
       result
         .json()
         .then((res) => {
@@ -61,7 +62,7 @@ const AddAppointment = () => {
           </div>
           <div className="card-body">
             <form onSubmit={saveAppointment}>
-              
+
               <div className="mb-3 text-color">
                 <label htmlFor="title" className="form-label">
                   <b>Problem</b>

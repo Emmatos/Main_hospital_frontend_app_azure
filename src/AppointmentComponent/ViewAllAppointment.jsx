@@ -1,3 +1,4 @@
+import API_BASE_URL from "../apiConfig";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
@@ -19,7 +20,7 @@ const ViewAllAppointment = () => {
 
   const retrieveAllAppointments = async () => {
     const response = await axios.get(
-      "https://hospitalapi.telcopharmacy.store/api/appointment/all"
+      `${API_BASE_URL}/api/appointment/all`
     );
     console.log(response.data);
     return response.data;

@@ -1,3 +1,4 @@
+import API_BASE_URL from "../apiConfig";
 import Carousel from "./Carousel";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -8,7 +9,7 @@ const HomePage = () => {
   const [allDoctor, setAllDoctor] = useState([]);
 
   const retrieveAllDoctor = async () => {
-    const response = await axios.get("https://hospitalapi.telcopharmacy.store/api/doctor/all");
+    const response = await axios.get(`${API_BASE_URL}/api/doctor/all`);
     console.log(response.data);
     return response.data;
   };
